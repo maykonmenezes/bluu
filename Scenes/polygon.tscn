@@ -1,0 +1,208 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://tl.tres" type="TileSet" id=1]
+[ext_resource path="res://Art/buttons/gamepad/GB_LEFT.png" type="Texture" id=2]
+[ext_resource path="res://Art/buttons/gamepad/GB_DOWN.png" type="Texture" id=3]
+[ext_resource path="res://Art/buttons/gamepad/GB_RIGHT.png" type="Texture" id=4]
+[ext_resource path="res://Art/buttons/gamepad/GB_UP.png" type="Texture" id=5]
+[ext_resource path="res://Fonts/dpcomic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=7]
+[ext_resource path="res://Art/buttons/gamepad/GB_A.png" type="Texture" id=8]
+[ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=9]
+[ext_resource path="res://Art/buttons/gamepad/GB_B.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/cam.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sound/flp/zoneX.ogg" type="AudioStream" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 6 )
+
+[node name="polygon" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 1025
+collision_mask = 1038
+format = 1
+tile_data = PoolIntArray( -1310713, 26, 0, -1245177, 26, 0, -1245163, 49, 0, -1179641, 26, 0, -1179627, 58, 0, -1114105, 26, 0, -1114098, 26, 0, -1114091, 58, 0, -1048569, 26, 0, -1048566, 26, 0, -1048565, 26, 0, -1048562, 26, 0, -1048561, 26, 0, -1048555, 58, 0, -983033, 26, 0, -983032, 1, 0, -983031, 1, 0, -983030, 1, 0, -983029, 1, 0, -983028, 1, 0, -983027, 1, 0, -983026, 1, 0, -983025, 1, 0, -983024, 1, 0, -983023, 1, 0, -983022, 1, 0, -983021, 1, 0, -983020, 1, 0, -983019, 58, 0, -983018, 2, 0, -917497, 26, 0, -917496, 11, 0, -917495, 11, 0, -917494, 11, 0, -917493, 11, 0, -917492, 11, 0, -917491, 11, 0, -917490, 11, 0, -917489, 11, 0, -917488, 11, 0, -917487, 11, 0, -917486, 11, 0, -917485, 11, 0, -917484, 11, 0, -917483, 58, 0, -917482, 16, 0, -851961, 26, 0, -851947, 58, 0, -786425, 26, 0, -786411, 58, 0, -720889, 26, 0, -720875, 56, 0, -655353, 26, 0, -131083, 54, 0, -196603, 25, 0, -131072, 25, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="TileMap"]
+position = Vector2( 447.956, -139.645 )
+scale = Vector2( 1.17255, 1.60395 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="TileMap"]
+modulate = Color( 1, 1, 1, 0.349216 )
+position = Vector2( 445.532, -132.715 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="TileMap"]
+position = Vector2( 467.956, -137.574 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="TileMap"]
+modulate = Color( 1, 1, 1, 0.349216 )
+position = Vector2( 457.956, -146.574 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="TileMap"]
+margin_left = 1625.34
+margin_top = -753.349
+margin_right = 1665.34
+margin_bottom = -737.349
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "MOVE"
+
+[node name="Sprite5" type="Sprite" parent="TileMap"]
+position = Vector2( 378.739, -117.867 )
+texture = ExtResource( 7 )
+
+[node name="Sprite6" type="Sprite" parent="TileMap"]
+position = Vector2( 342.141, -171.705 )
+texture = ExtResource( 8 )
+
+[node name="Label2" type="Label" parent="TileMap"]
+margin_left = 384.131
+margin_top = -119.346
+margin_right = 424.131
+margin_bottom = -103.346
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "JUMP"
+
+[node name="Label3" type="Label" parent="TileMap"]
+margin_left = -35.0
+margin_top = -219.0
+margin_right = 30.0
+margin_bottom = -203.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "WALL jump"
+uppercase = true
+
+[node name="Sprite7" type="Sprite" parent="TileMap"]
+position = Vector2( -37, -193 )
+texture = ExtResource( 2 )
+
+[node name="Sprite8" type="Sprite" parent="TileMap"]
+position = Vector2( -27, -182 )
+texture = ExtResource( 4 )
+
+[node name="Sprite10" type="Sprite" parent="TileMap"]
+position = Vector2( 4, -194 )
+texture = ExtResource( 7 )
+
+[node name="Sprite9" type="Sprite" parent="TileMap"]
+position = Vector2( 18, -181 )
+texture = ExtResource( 8 )
+
+[node name="Label4" type="Label" parent="TileMap"]
+margin_left = -15.0
+margin_top = -196.0
+margin_right = -6.0
+margin_bottom = -180.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "+"
+uppercase = true
+
+[node name="Sprite12" type="Sprite" parent="TileMap"]
+position = Vector2( -47, -417 )
+texture = ExtResource( 9 )
+
+[node name="Sprite11" type="Sprite" parent="TileMap"]
+position = Vector2( -27, -417 )
+texture = ExtResource( 10 )
+
+[node name="Label5" type="Label" parent="TileMap"]
+margin_left = -14.0
+margin_top = -424.0
+margin_right = 26.0
+margin_bottom = -408.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "Shoot"
+uppercase = true
+
+[node name="Label6" type="Label" parent="TileMap"]
+margin_left = 473.423
+margin_top = -188.174
+margin_right = 513.423
+margin_bottom = -172.174
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "nice!"
+uppercase = true
+
+[node name="player" parent="." instance=ExtResource( 11 )]
+position = Vector2( 621, -1369 )
+collision_mask = 3
+
+[node name="cameras" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="cam" type="Camera2D" parent="cameras"]
+position = Vector2( 19, -24 )
+current = true
+limit_left = -300
+limit_right = 900
+limit_bottom = 200
+limit_smoothed = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_limits = true
+script = ExtResource( 12 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 13 )]
+zone_text = "Zone X"
+location = "Polygone"
+
+[node name="mainSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -2.0
+autoplay = true
+
