@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/redcri_damage.wav-12065186ca7a384c40b7a87fdf986611.sample"
+
+[deps]
+
+source_file="res://sound/redcri_damage.wav"
+dest_files=[ "res://.import/redcri_damage.wav-12065186ca7a384c40b7a87fdf986611.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

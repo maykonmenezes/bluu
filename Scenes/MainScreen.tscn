@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/parallax-space-backgound.png" type="Texture" id=2]
+[ext_resource path="res://UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UserInterface/SceneChangeButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UserInterface/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://Art/bluu.png" type="Texture" id=7]
+[ext_resource path="res://Art/player_boo-1.png.png" type="Texture" id=8]
+[ext_resource path="res://Art/clouds.png" type="Texture" id=9]
+[ext_resource path="res://Art/player_boo-1.png (1).png" type="Texture" id=10]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_boo-1png" type="Sprite" parent="TextureRect"]
+position = Vector2( 225.798, 49.4441 )
+texture = ExtResource( 8 )
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.579
+margin_top = -90.5266
+margin_right = 385.421
+margin_bottom = 79.4734
+rect_scale = Vector2( 0.487895, 0.439999 )
+text = "Bluu"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.1053
+margin_top = -4.47375
+margin_right = 297.895
+margin_bottom = 149.526
+rect_scale = Vector2( 0.360002, 0.36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
+margin_right = 360.0
+margin_bottom = 72.0
+text = "Play"
+next_scene_path = ""
+
+[node name="player_boo-1png (1)" type="Sprite" parent="Menu/PlayButton"]
+position = Vector2( 38.2793, -9.7639 )
+scale = Vector2( 2.68289, 2.68289 )
+texture = ExtResource( 10 )
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
+margin_top = 80.0
+margin_right = 360.0
+margin_bottom = 153.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="bluu" type="Sprite" parent="."]
+position = Vector2( 163.104, 45.3153 )
+scale = Vector2( 0.240001, 0.24 )
+texture = ExtResource( 7 )
+
+[node name="clouds" type="Sprite" parent="."]
+position = Vector2( 272.577, 53.7364 )
+texture = ExtResource( 9 )

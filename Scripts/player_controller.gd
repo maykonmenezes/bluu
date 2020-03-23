@@ -254,6 +254,7 @@ func die():
 	if has_node('../cameras/cam'):
 		$'../cameras/cam'.targets.erase(self)
 	queue_free()
+	get_tree().change_scene("res://Scenes/GameOver.tscn")
 
 func damage (val, body):
 	enemy = body
