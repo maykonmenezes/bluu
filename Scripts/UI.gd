@@ -1,6 +1,6 @@
 extends Control
 
-export var zone_text = ""
+export var zone_text = "Bluu"
 export var location = "Unknow"
 var health_step = 4
 var STATE = 0

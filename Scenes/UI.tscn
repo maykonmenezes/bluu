@@ -5,8 +5,8 @@
 [ext_resource path="res://Fonts/yoster.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://Fonts/acknowtt.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Art/buttons/gamepad/GB_A.png" type="Texture" id=6]
-[ext_resource path="res://Art/buttons/gamepad/GB_B.png" type="Texture" id=7]
+[ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=6]
+[ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "change_scene"
@@ -60,7 +60,7 @@ tracks/3/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 extra_spacing_top = 5
 font_data = ExtResource( 4 )
 
@@ -288,12 +288,11 @@ autoplay = "change_scene"
 anims/change_scene = SubResource( 1 )
 
 [node name="loc" type="Label" parent="change_scene"]
-visible = false
 margin_left = 52.0
 margin_top = 139.0
-margin_right = 53.0
+margin_right = 306.0
 margin_bottom = 174.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.215942, 0.353064, 0.453125, 1 )
 custom_constants/shadow_offset_x = 1
@@ -305,12 +304,10 @@ autowrap = true
 clip_text = true
 
 [node name="game_over" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="bg" type="TextureRect" parent="game_over"]
-visible = false
 modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -323,7 +320,6 @@ anims/do = SubResource( 3 )
 anims/game_over = SubResource( 4 )
 
 [node name="buttons" type="Control" parent="game_over"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 160.0
 margin_right = 194.0
@@ -342,7 +338,10 @@ margin_left = -20.0
 margin_top = 1.0
 margin_right = -4.0
 margin_bottom = 17.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="exit" type="Label" parent="game_over/buttons"]
 margin_left = 129.0
@@ -357,10 +356,9 @@ margin_left = -20.0
 margin_top = 1.0
 margin_right = -4.0
 margin_bottom = 17.0
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="text" type="Label" parent="game_over"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0

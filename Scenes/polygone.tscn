@@ -10,9 +10,7 @@
 [ext_resource path="res://Art/buttons/gamepad/GB_UP.png" type="Texture" id=8]
 [ext_resource path="res://Fonts/dpcomic.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=10]
-[ext_resource path="res://Art/buttons/gamepad/GB_A.png" type="Texture" id=11]
 [ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=12]
-[ext_resource path="res://Art/buttons/gamepad/GB_B.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Art/bg_bg.png" type="Texture" id=15]
 [ext_resource path="res://Art/bg_water/bg_water1.png" type="Texture" id=16]
@@ -26,6 +24,8 @@
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=24]
 [ext_resource path="res://sound/song.wav" type="AudioStream" id=25]
 [ext_resource path="res://assets/parallax-space-backgound.png" type="Texture" id=26]
+[ext_resource path="res://assets/parallax-space-far-planets.png" type="Texture" id=27]
+[ext_resource path="res://assets/parallax-space-ring-planet.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 9 )
@@ -155,12 +155,8 @@ __meta__ = {
 }
 
 [node name="Sprite5" type="Sprite" parent="TileMap"]
-position = Vector2( 318, -532 )
-texture = ExtResource( 10 )
-
-[node name="Sprite6" type="Sprite" parent="TileMap"]
 position = Vector2( 338, -532 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 
 [node name="Label2" type="Label" parent="TileMap"]
 margin_left = 351.0
@@ -193,6 +189,9 @@ custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
 text = "WALL jump"
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite7" type="Sprite" parent="TileMap"]
 position = Vector2( -37, -193 )
@@ -203,12 +202,8 @@ position = Vector2( -27, -182 )
 texture = ExtResource( 7 )
 
 [node name="Sprite10" type="Sprite" parent="TileMap"]
-position = Vector2( 4, -194 )
+position = Vector2( 8, -189 )
 texture = ExtResource( 10 )
-
-[node name="Sprite9" type="Sprite" parent="TileMap"]
-position = Vector2( 18, -181 )
-texture = ExtResource( 11 )
 
 [node name="Label4" type="Label" parent="TileMap"]
 margin_left = -15.0
@@ -229,12 +224,8 @@ __meta__ = {
 }
 
 [node name="Sprite12" type="Sprite" parent="TileMap"]
-position = Vector2( -47, -417 )
+position = Vector2( -28, -417 )
 texture = ExtResource( 12 )
-
-[node name="Sprite11" type="Sprite" parent="TileMap"]
-position = Vector2( -27, -417 )
-texture = ExtResource( 13 )
 
 [node name="Label5" type="Label" parent="TileMap"]
 margin_left = -14.0
@@ -303,6 +294,14 @@ texture = ExtResource( 16 )
 offset = Vector2( 256, 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="parallax-space-far-planets" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( -62.4504, -503.558 )
+texture = ExtResource( 27 )
+
+[node name="parallax-space-ring-planet" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 556.352, -344.891 )
+texture = ExtResource( 28 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0.1 )
@@ -466,7 +465,7 @@ position = Vector2( 534.626, -109.64 )
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 23 )]
 zone_text = "Zone X"
-location = "Polygone"
+location = "Bluu"
 
 [node name="locker_scene" type="StaticBody2D" parent="."]
 position = Vector2( 509, -527 )
