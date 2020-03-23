@@ -1,0 +1,379 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://Art/white_pix.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/yoster.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/FFFFORWA.TTF" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/acknowtt.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Art/buttons/gamepad/GB_A.png" type="Texture" id=6]
+[ext_resource path="res://Art/buttons/gamepad/GB_B.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "change_scene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bg:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bg:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("loc:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3, 2, 4.4, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 35 ), Vector2( 254, 35 ), Vector2( 254, 35 ), Vector2( 1, 35 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("loc:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.3, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+extra_spacing_top = 5
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "do"
+tracks/0/type = "value"
+tracks/0/path = NodePath("text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die_menu_end"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bg:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bg:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("buttons:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("buttons:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("text:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.3, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die_menu_buttons"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="UI" type="Control" groups=[
+"ui",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="hud" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="health" type="VBoxContainer" parent="hud"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 49.0
+margin_bottom = 40.0
+
+[node name="1" type="Control" parent="hud/health"]
+margin_right = 42.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 0, 6 )
+
+[node name="under" type="TextureRect" parent="hud/health/1"]
+self_modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 41.0
+margin_bottom = 5.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="TextureRect" parent="hud/health/1/under"]
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -1.0
+margin_bottom = -1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="line" type="TextureRect" parent="hud/health/1"]
+self_modulate = Color( 1, 0.380392, 0.698039, 1 )
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 41.0
+margin_bottom = 5.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="change_scene" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="bg" type="TextureRect" parent="change_scene"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="front_line" type="TextureRect" parent="change_scene"]
+visible = false
+modulate = Color( 0.443137, 0.890196, 0.572549, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -301.0
+margin_top = 133.0
+margin_right = -63.0
+margin_bottom = -11.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="anim" type="AnimationPlayer" parent="change_scene"]
+autoplay = "change_scene"
+anims/change_scene = SubResource( 1 )
+
+[node name="loc" type="Label" parent="change_scene"]
+visible = false
+margin_left = 52.0
+margin_top = 139.0
+margin_right = 53.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.215942, 0.353064, 0.453125, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "Bluu"
+autowrap = true
+clip_text = true
+
+[node name="game_over" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="bg" type="TextureRect" parent="game_over"]
+visible = false
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="anim" type="AnimationPlayer" parent="game_over"]
+autoplay = "change_scene"
+anims/do = SubResource( 3 )
+anims/game_over = SubResource( 4 )
+
+[node name="buttons" type="Control" parent="game_over"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 160.0
+margin_right = 194.0
+margin_bottom = 180.0
+
+[node name="try_again" type="Label" parent="game_over/buttons"]
+margin_left = 21.0
+margin_top = 1.0
+margin_right = 95.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 5 )
+text = "Try Again"
+
+[node name="button" type="TextureRect" parent="game_over/buttons/try_again"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 6 )
+
+[node name="exit" type="Label" parent="game_over/buttons"]
+margin_left = 129.0
+margin_top = 1.0
+margin_right = 203.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 5 )
+text = "Go Menu"
+
+[node name="button" type="TextureRect" parent="game_over/buttons/exit"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 7 )
+
+[node name="text" type="Label" parent="game_over"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0.858824, 0.254902, 0.380392, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="checker" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="checker" to="." method="_on_checker_timeout"]

@@ -1,0 +1,536 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Scenes/enemy/thorns.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/enemy/thorns_ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/enemy/thorns_ground_static.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tl.tres" type="TileSet" id=4]
+[ext_resource path="res://Art/buttons/gamepad/GB_LEFT.png" type="Texture" id=5]
+[ext_resource path="res://Art/buttons/gamepad/GB_DOWN.png" type="Texture" id=6]
+[ext_resource path="res://Art/buttons/gamepad/GB_RIGHT.png" type="Texture" id=7]
+[ext_resource path="res://Art/buttons/gamepad/GB_UP.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/dpcomic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=10]
+[ext_resource path="res://Art/buttons/gamepad/GB_A.png" type="Texture" id=11]
+[ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=12]
+[ext_resource path="res://Art/buttons/gamepad/GB_B.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Art/bg_bg.png" type="Texture" id=15]
+[ext_resource path="res://Art/bg_water/bg_water1.png" type="Texture" id=16]
+[ext_resource path="res://Art/bg_water/bg_water2.png" type="Texture" id=17]
+[ext_resource path="res://Art/bg_water/bg_water3.png" type="Texture" id=18]
+[ext_resource path="res://Art/clouds.png" type="Texture" id=19]
+[ext_resource path="res://Scripts/cam.gd" type="Script" id=20]
+[ext_resource path="res://Scenes/enemy/grecri.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/enemy/redcri.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=24]
+[ext_resource path="res://sound/song.wav" type="AudioStream" id=25]
+[ext_resource path="res://assets/parallax-space-backgound.png" type="Texture" id=26]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=2]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite4:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
+}
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 20, -838 )
+b = Vector2( 20, 658 )
+
+[node name="polygone" type="Node"]
+
+[node name="thorns" parent="." instance=ExtResource( 1 )]
+position = Vector2( 235, -417 )
+
+[node name="thorns3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 243, -417 )
+timestart = 2.0
+
+[node name="thorns2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 225, -445 )
+rotation = 1.5708
+
+[node name="thorns4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -161, -86 )
+rotation = 4.71239
+
+[node name="thorns5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -161, -75 )
+rotation = 4.71239
+timestart = 0.5
+
+[node name="thorns_ground_static" parent="." instance=ExtResource( 2 )]
+position = Vector2( 332, -480 )
+timestart = 1.1
+
+[node name="thorns_ground_static5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 136, 32 )
+timestart = 1.1
+
+[node name="thorns_ground_static6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 32 )
+timestart = 0.9
+
+[node name="thorns_ground_static7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 152, 32 )
+timestart = 0.7
+
+[node name="thorns_ground_static9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 352, -150 )
+rotation = 1.5708
+timestart = 0.9
+
+[node name="thorns_ground_static8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 352, -138 )
+rotation = 1.5708
+timestart = 0.7
+
+[node name="thorns_ground_static2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 342, -480 )
+timestart = 1.0
+
+[node name="thorns_ground_static3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 250, -480 )
+
+[node name="thorns_ground_static4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 236, -480 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 1025
+collision_mask = 1038
+format = 1
+tile_data = PoolIntArray( -1245163, 2, 0, -1114122, 2, 0, -1179645, 2, 0, -1179627, 2, 0, -1048586, 2, 0, -1114109, 2, 0, -1114091, 2, 0, -983050, 2, 0, -1048573, 2, 0, -1048568, 2, 0, -1048555, 2, 0, -917514, 2, 0, -983037, 2, 0, -983033, 2, 0, -983032, 2, 0, -983031, 2, 0, -983030, 2, 0, -983029, 2, 0, -983028, 2, 0, -983027, 42, 0, -983026, 42, 0, -983025, 42, 0, -983024, 42, 0, -983023, 2, 0, -983022, 2, 0, -983021, 2, 0, -983020, 2, 0, -983019, 2, 0, -983018, 2, 0, -851978, 2, 0, -917501, 2, 0, -917497, 42, 0, -917496, 2, 0, -917495, 2, 0, -917494, 2, 0, -917493, 2, 0, -917492, 2, 0, -917491, 2, 0, -917490, 2, 0, -917489, 2, 0, -917488, 2, 0, -917487, 2, 0, -917486, 2, 0, -917485, 2, 0, -917484, 2, 0, -917483, 2, 0, -917482, 2, 0, -786442, 2, 0, -851965, 2, 0, -851960, 2, 0, -851947, 2, 0, -720906, 2, 0, -720903, 2, 0, -786431, 2, 0, -786429, 2, 0, -786424, 2, 0, -786411, 2, 0, -655370, 2, 0, -655367, 2, 0, -655366, 2, 0, -655365, 2, 0, -655364, 2, 0, -655363, 2, 0, -655362, 2, 0, -655361, 2, 0, -720896, 2, 0, -720895, 2, 0, -720893, 2, 0, -720888, 2, 0, -720875, 2, 0, -589834, 2, 0, -589831, 2, 0, -589830, 2, 0, -589829, 2, 0, -589828, 2, 0, -589827, 2, 0, -589826, 2, 0, -589825, 2, 0, -655360, 2, 0, -655359, 2, 0, -655357, 2, 0, -655352, 2, 0, -524298, 2, 0, -524295, 2, 0, -589823, 2, 0, -589821, 2, 0, -589816, 2, 0, -589792, 48, 0, -458762, 2, 0, -458759, 2, 0, -524287, 2, 0, -524285, 2, 0, -524280, 2, 0, -393226, 2, 0, -393223, 2, 0, -458751, 2, 0, -458749, 2, 0, -458745, 2, 0, -458744, 2, 0, -458743, 2, 0, -458739, 2, 0, -458738, 2, 0, -458737, 2, 0, -458736, 2, 0, -458735, 2, 0, -458734, 2, 0, -458733, 2, 0, -458732, 2, 0, -458731, 2, 0, -458730, 2, 0, -458729, 2, 0, -327690, 2, 0, -327687, 2, 0, -393215, 2, 0, -393209, 2, 0, -393208, 2, 0, -393207, 2, 0, -393203, 2, 0, -393202, 2, 0, -393201, 2, 0, -393200, 2, 0, -393199, 2, 0, -393198, 2, 0, -393197, 2, 0, -393196, 2, 0, -393195, 2, 0, -393194, 2, 0, -393193, 2, 0, -262154, 2, 0, -262146, 2, 0, -262145, 2, 0, -327680, 2, 0, -327679, 2, 0, -327678, 2, 0, -327677, 2, 0, -327676, 2, 0, -327675, 2, 0, -327674, 2, 0, -327673, 2, 0, -327672, 2, 0, -327671, 2, 0, -327670, 2, 0, -196618, 2, 0, -196615, 2, 0, -262143, 2, 0, -262137, 2, 0, -262136, 2, 0, -262135, 2, 0, -131083, 2, 0, -131082, 2, 0, -131081, 2, 0, -131080, 2, 0, -131079, 2, 0, -131078, 2, 0, -196603, 2, 0, -196600, 2, 0, -196596, 2, 0, -196593, 2, 0, -196592, 2, 0, -196588, 2, 0, -196587, 2, 0, -196586, 2, 0, -196585, 2, 0, -65546, 2, 0, -65543, 2, 0, -65540, 2, 0, -131072, 2, 0, -65533, 2, 0, -65517, 2, 0, -65516, 2, 0, -65515, 2, 0, -65514, 2, 0, -65513, 2, 0, -65512, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 5, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 131065, 2, 0, 131066, 2, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65549, 2, 0, 65550, 2, 0, 65551, 2, 0, 65552, 2, 0, 65555, 46, 0, 65556, 47, 0, 65557, 47, 0, 65558, 47, 0, 65559, 47, 0, 65560, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 262142, 46, 0, 262143, 47, 0, 196608, 47, 0, 196609, 47, 0, 196610, 2, 0, 196611, 2, 0, 262147, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="TileMap"]
+position = Vector2( 586, -531 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="TileMap"]
+modulate = Color( 1, 1, 1, 0.349216 )
+position = Vector2( 596, -522 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="TileMap"]
+position = Vector2( 606, -531 )
+texture = ExtResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="TileMap"]
+modulate = Color( 1, 1, 1, 0.349216 )
+position = Vector2( 596, -540 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="TileMap"]
+margin_left = 619.0
+margin_top = -538.0
+margin_right = 659.0
+margin_bottom = -524.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "MOVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite5" type="Sprite" parent="TileMap"]
+position = Vector2( 318, -532 )
+texture = ExtResource( 10 )
+
+[node name="Sprite6" type="Sprite" parent="TileMap"]
+position = Vector2( 338, -532 )
+texture = ExtResource( 11 )
+
+[node name="Label2" type="Label" parent="TileMap"]
+margin_left = 351.0
+margin_top = -539.0
+margin_right = 391.0
+margin_bottom = -523.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "JUMP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="TileMap"]
+margin_left = -35.0
+margin_top = -219.0
+margin_right = 30.0
+margin_bottom = -203.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "WALL jump"
+uppercase = true
+
+[node name="Sprite7" type="Sprite" parent="TileMap"]
+position = Vector2( -37, -193 )
+texture = ExtResource( 5 )
+
+[node name="Sprite8" type="Sprite" parent="TileMap"]
+position = Vector2( -27, -182 )
+texture = ExtResource( 7 )
+
+[node name="Sprite10" type="Sprite" parent="TileMap"]
+position = Vector2( 4, -194 )
+texture = ExtResource( 10 )
+
+[node name="Sprite9" type="Sprite" parent="TileMap"]
+position = Vector2( 18, -181 )
+texture = ExtResource( 11 )
+
+[node name="Label4" type="Label" parent="TileMap"]
+margin_left = -15.0
+margin_top = -196.0
+margin_right = -6.0
+margin_bottom = -180.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "+"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite12" type="Sprite" parent="TileMap"]
+position = Vector2( -47, -417 )
+texture = ExtResource( 12 )
+
+[node name="Sprite11" type="Sprite" parent="TileMap"]
+position = Vector2( -27, -417 )
+texture = ExtResource( 13 )
+
+[node name="Label5" type="Label" parent="TileMap"]
+margin_left = -14.0
+margin_top = -424.0
+margin_right = 26.0
+margin_bottom = -408.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "Shoot"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="TileMap"]
+margin_left = 715.0
+margin_top = -271.0
+margin_right = 755.0
+margin_bottom = -255.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "nice!"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" parent="." instance=ExtResource( 14 )]
+position = Vector2( 621, -1369 )
+collision_mask = 3
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.05 )
+motion_offset = Vector2( 0, 120 )
+motion_mirroring = Vector2( 512, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 256, 16 )
+texture = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer5"]
+autoplay = "water"
+anims/water = SubResource( 2 )
+
+[node name="Sprite5" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( 93.5303, -213.783 )
+scale = Vector2( 3.00176, 5.11282 )
+texture = ExtResource( 26 )
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( -222.37, 31.0887 )
+texture = ExtResource( 16 )
+offset = Vector2( 256, 16 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -50 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 86, -10 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 219, 25 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 326, -42 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( 0, -40 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 49, 13 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+
+[node name="Sprite3" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 112, 2 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 149, 34 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.2 )
+motion_offset = Vector2( 0, -40 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 57, 37 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 2
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 190, 40 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 2
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2( 345, 9 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 2
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.35, 0.3 )
+motion_offset = Vector2( 0, -40 )
+motion_mirroring = Vector2( 400, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 28, 27 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 129, 9 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( 291, 22 )
+texture = ExtResource( 19 )
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="cameras" type="Node" parent="."]
+
+[node name="cam" type="Camera2D" parent="cameras"]
+position = Vector2( 19, -24 )
+current = true
+limit_left = -300
+limit_right = 900
+limit_bottom = 200
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_limits = true
+script = ExtResource( 20 )
+
+[node name="grecri" parent="." instance=ExtResource( 21 )]
+position = Vector2( 110, -43 )
+
+[node name="grecri6" parent="." instance=ExtResource( 21 )]
+position = Vector2( 298, 22 )
+
+[node name="grecri10" parent="." instance=ExtResource( 21 )]
+position = Vector2( -132, -363 )
+
+[node name="grecri11" parent="." instance=ExtResource( 21 )]
+position = Vector2( -44, -363 )
+
+[node name="grecri8" parent="." instance=ExtResource( 21 )]
+position = Vector2( -36, -13 )
+
+[node name="grecri9" parent="." instance=ExtResource( 21 )]
+position = Vector2( 52, -13 )
+
+[node name="grecri7" parent="." instance=ExtResource( 21 )]
+position = Vector2( 494, -114 )
+
+[node name="grecri3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 527, -233 )
+
+[node name="grecri4" parent="." instance=ExtResource( 21 )]
+position = Vector2( 606, -235 )
+
+[node name="grecri5" parent="." instance=ExtResource( 21 )]
+position = Vector2( 720, -234 )
+
+[node name="grecri2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 697, -115 )
+
+[node name="redcri" parent="." instance=ExtResource( 22 )]
+position = Vector2( -200, 20 )
+
+[node name="redcri2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 534.626, -109.64 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 23 )]
+zone_text = "Zone X"
+location = "Polygone"
+
+[node name="locker_scene" type="StaticBody2D" parent="."]
+position = Vector2( 509, -527 )
+collision_layer = 32
+collision_mask = 46
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="locker_scene"]
+position = Vector2( -829, 69 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="locker_scene"]
+position = Vector2( 371, 68 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="locker_scene"]
+position = Vector2( 142, -603 )
+shape = SubResource( 3 )
+
+[node name="coin" parent="." instance=ExtResource( 24 )]
+position = Vector2( 150, -168 )
+
+[node name="coin2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 135, -168 )
+
+[node name="coin3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 120, -168 )
+
+[node name="coin4" parent="." instance=ExtResource( 24 )]
+position = Vector2( -272, -106 )
+
+[node name="coin5" parent="." instance=ExtResource( 24 )]
+position = Vector2( -257, -106 )
+
+[node name="coin6" parent="." instance=ExtResource( 24 )]
+position = Vector2( -241, -106 )
+
+[node name="coin7" parent="." instance=ExtResource( 24 )]
+position = Vector2( -89, 23 )
+
+[node name="coin8" parent="." instance=ExtResource( 24 )]
+position = Vector2( -103, 23 )
+
+[node name="coin9" parent="." instance=ExtResource( 24 )]
+position = Vector2( -117, 23 )
+
+[node name="coin10" parent="." instance=ExtResource( 24 )]
+position = Vector2( 47, -79 )
+
+[node name="coin11" parent="." instance=ExtResource( 24 )]
+position = Vector2( 175, -107 )
+
+[node name="coin12" parent="." instance=ExtResource( 24 )]
+position = Vector2( 144, 14 )
+
+[node name="coin13" parent="." instance=ExtResource( 24 )]
+position = Vector2( 606, -138 )
+
+[node name="coin14" parent="." instance=ExtResource( 24 )]
+position = Vector2( 592, -138 )
+
+[node name="coin15" parent="." instance=ExtResource( 24 )]
+position = Vector2( 578, -138 )
+
+[node name="mainSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -2.0
+autoplay = true
