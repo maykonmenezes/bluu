@@ -207,6 +207,11 @@ font_data = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+zone_text = "Zone Y"
+location = "Octago"
 
 [node name="hud" type="Control" parent="."]
 anchor_right = 1.0
@@ -262,9 +267,12 @@ __meta__ = {
 [node name="change_scene" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bg" type="TextureRect" parent="change_scene"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 0.333333 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
@@ -288,6 +296,7 @@ autoplay = "change_scene"
 anims/change_scene = SubResource( 1 )
 
 [node name="loc" type="Label" parent="change_scene"]
+visible = false
 margin_left = 52.0
 margin_top = 139.0
 margin_right = 306.0
@@ -299,13 +308,16 @@ custom_constants/shadow_offset_x = 1
 custom_constants/line_spacing = 1
 custom_constants/shadow_offset_y = 1
 custom_constants/shadow_as_outline = 1
-text = "Bluu"
+text = "zone"
 autowrap = true
 clip_text = true
 
 [node name="game_over" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bg" type="TextureRect" parent="game_over"]
 modulate = Color( 0, 0, 0, 0 )

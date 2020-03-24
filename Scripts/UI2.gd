@@ -1,7 +1,7 @@
 extends Control
 
-export var zone_text = "Octago"
-export var location = "Unknow"
+export var zone_text = "Fusion"
+export var location = "Fusion"
 var health_step = 4
 var STATE = 0
 var die_button = -1
@@ -20,9 +20,9 @@ func _process(delta):
 		set_process(false)
 
 func _ready():
-	#$'change_scene/zone'.text = zone_text
+	#s$'change_scene/zone'.text = zone_text
 	$'change_scene/loc'.text = location
-	#update_health()
+	update_health()
 
 func update_health():
 	var players = get_tree().get_nodes_in_group("player")
@@ -37,7 +37,7 @@ func _on_checker_timeout():
 
 func die_menu_end():
 	if die_button == 0:
-		get_tree().change_scene("res://Scenes/polygone.tscn")
+		get_tree().change_scene("res://Scenes/fusion.tscn")
 	elif die_button == 1:
 		get_tree().quit()
 
