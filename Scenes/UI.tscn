@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Art/white_pix.png" type="Texture" id=2]
@@ -7,9 +7,24 @@
 [ext_resource path="res://Fonts/acknowtt.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=6]
 [ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
-resource_name = "change_scene"
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("tip:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("bg:visible")
@@ -60,12 +75,11 @@ tracks/3/keys = {
 "values": [ false, true, false ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 extra_spacing_top = 5
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "do"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("text:modulate")
 tracks/0/interp = 1
@@ -105,7 +119,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("bg:visible")
@@ -194,12 +208,142 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "do"
+tracks/0/type = "value"
+tracks/0/path = NodePath("text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("buttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die_menu_end"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("bg:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bg:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.6, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("buttons:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("buttons:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("text:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.3, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die_menu_buttons"
+} ]
+}
 
 [node name="UI" type="Control" groups=[
 "ui",
@@ -227,6 +371,9 @@ margin_bottom = 40.0
 margin_right = 42.0
 margin_bottom = 6.0
 rect_min_size = Vector2( 0, 6 )
+
+[node name="coin" parent="hud/health/1" instance=ExtResource( 8 )]
+position = Vector2( 23.4223, 13.6311 )
 
 [node name="under" type="TextureRect" parent="hud/health/1"]
 self_modulate = Color( 0.47451, 0.47451, 0.47451, 1 )
@@ -264,6 +411,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="coins" type="Label" parent="hud/health/1"]
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 22.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tip" type="Label" parent="hud/health/1"]
+visible = false
+margin_left = 92.0
+margin_top = 14.0
+margin_right = 218.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="hud/health/1"]
+anims/anim = SubResource( 1 )
+
 [node name="change_scene" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -293,7 +462,7 @@ expand = true
 
 [node name="anim" type="AnimationPlayer" parent="change_scene"]
 autoplay = "change_scene"
-anims/change_scene = SubResource( 1 )
+anims/change_scene = SubResource( 2 )
 
 [node name="loc" type="Label" parent="change_scene"]
 visible = false
@@ -301,7 +470,7 @@ margin_left = 52.0
 margin_top = 139.0
 margin_right = 306.0
 margin_bottom = 174.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.215942, 0.353064, 0.453125, 1 )
 custom_constants/shadow_offset_x = 1
@@ -328,8 +497,8 @@ expand = true
 
 [node name="anim" type="AnimationPlayer" parent="game_over"]
 autoplay = "change_scene"
-anims/do = SubResource( 3 )
-anims/game_over = SubResource( 4 )
+anims/do = SubResource( 4 )
+anims/game_over = SubResource( 5 )
 
 [node name="buttons" type="Control" parent="game_over"]
 modulate = Color( 1, 1, 1, 0 )
@@ -342,7 +511,7 @@ margin_left = 21.0
 margin_top = 1.0
 margin_right = 95.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Try Again"
 
 [node name="button" type="TextureRect" parent="game_over/buttons/try_again"]
@@ -360,8 +529,11 @@ margin_left = 129.0
 margin_top = 1.0
 margin_right = 203.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 5 )
-text = "Go Menu"
+custom_fonts/font = SubResource( 6 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="button" type="TextureRect" parent="game_over/buttons/exit"]
 margin_left = -20.0
@@ -374,7 +546,7 @@ texture = ExtResource( 6 )
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_shadow = Color( 0.858824, 0.254902, 0.380392, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/line_spacing = 0
@@ -383,6 +555,85 @@ custom_constants/shadow_as_outline = 1
 text = "GAME OVER"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game_over2" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="TextureRect" parent="game_over2"]
+modulate = Color( 0, 0, 0, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="anim" type="AnimationPlayer" parent="game_over2"]
+autoplay = "change_scene"
+anims/do = SubResource( 8 )
+anims/game_over = SubResource( 9 )
+
+[node name="buttons" type="Control" parent="game_over2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 160.0
+margin_right = 194.0
+margin_bottom = 180.0
+
+[node name="try_again" type="Label" parent="game_over2/buttons"]
+margin_left = 21.0
+margin_top = 1.0
+margin_right = 95.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+text = "Try Again"
+
+[node name="button" type="TextureRect" parent="game_over2/buttons/try_again"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Label" parent="game_over2/buttons"]
+margin_left = 129.0
+margin_top = 1.0
+margin_right = 203.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+text = "Exit"
+
+[node name="button" type="TextureRect" parent="game_over2/buttons/exit"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 6 )
+
+[node name="text" type="Label" parent="game_over2"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color_shadow = Color( 0.858824, 0.254902, 0.380392, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "YOU WON!
+CONGRATS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="checker" type="Timer" parent="."]
 autostart = true

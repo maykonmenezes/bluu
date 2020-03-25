@@ -2,6 +2,7 @@ extends Control
 
 export var zone_text = "Fusion"
 export var location = "Fusion"
+var coins_counter = 0
 var health_step = 4
 var STATE = 0
 var die_button = -1
@@ -34,6 +35,15 @@ func _on_checker_timeout():
 	if players.size() <= 0:
 		$'game_over/anim'.play("game_over")
 		$'checker'.stop()
+
+func on_final():
+	var coins = get_tree().get_nodes_in_group("coin")
+	if coins_counter == 34:
+		$'game_over2/anim'.play("game_over")
+		$'checker'.stop()
+	else:
+		$'hud/health/1/tip'.text = "You left some coins"
+		$'hud/health/1/anim'.play("anim")
 
 func die_menu_end():
 	if die_button == 0:

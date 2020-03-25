@@ -54,6 +54,16 @@ b = Vector2( 20, 658 )
 
 [node name="polygone" type="Node"]
 
+[node name="portal" parent="." instance=ExtResource( 24 )]
+position = Vector2( 720.937, -487.207 )
+scale = Vector2( 0.258477, 0.19356 )
+script = ExtResource( 11 )
+
+[node name="portal2" type="Sprite" parent="portal"]
+position = Vector2( -6.64563, -27.1233 )
+scale = Vector2( 0.690495, 0.586692 )
+texture = ExtResource( 13 )
+
 [node name="thorns" parent="." instance=ExtResource( 1 )]
 position = Vector2( 235, -417 )
 
@@ -292,7 +302,7 @@ texture = ExtResource( 26 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
 position = Vector2( -222.37, 31.0887 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 offset = Vector2( 256, 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
@@ -484,60 +494,80 @@ shape = SubResource( 3 )
 position = Vector2( 142, -603 )
 shape = SubResource( 3 )
 
-[node name="coin" parent="." instance=ExtResource( 24 )]
+[node name="coin" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 150, -168 )
 
-[node name="coin2" parent="." instance=ExtResource( 24 )]
+[node name="coin2" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 135, -168 )
 
-[node name="coin3" parent="." instance=ExtResource( 24 )]
+[node name="coin3" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 120, -168 )
 
-[node name="coin4" parent="." instance=ExtResource( 24 )]
-position = Vector2( -272, -106 )
+[node name="coin4" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
+position = Vector2( -272, -105 )
 
-[node name="coin5" parent="." instance=ExtResource( 24 )]
+[node name="coin5" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( -257, -106 )
 
-[node name="coin6" parent="." instance=ExtResource( 24 )]
+[node name="coin6" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( -241, -106 )
 
-[node name="coin7" parent="." instance=ExtResource( 24 )]
+[node name="coin7" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( -89, 23 )
 
-[node name="coin8" parent="." instance=ExtResource( 24 )]
+[node name="coin8" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( -103, 23 )
 
-[node name="coin9" parent="." instance=ExtResource( 24 )]
+[node name="coin9" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( -117, 23 )
 
-[node name="coin10" parent="." instance=ExtResource( 24 )]
+[node name="coin10" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 47, -79 )
 
-[node name="coin11" parent="." instance=ExtResource( 24 )]
+[node name="coin11" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 175, -107 )
 
-[node name="coin12" parent="." instance=ExtResource( 24 )]
+[node name="coin12" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 144, 14 )
 
-[node name="coin13" parent="." instance=ExtResource( 24 )]
+[node name="coin13" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 606, -138 )
 
-[node name="coin14" parent="." instance=ExtResource( 24 )]
+[node name="coin14" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 592, -138 )
 
-[node name="coin15" parent="." instance=ExtResource( 24 )]
+[node name="coin15" parent="." groups=[
+"coin",
+] instance=ExtResource( 24 )]
 position = Vector2( 578, -138 )
-
-[node name="portal" parent="." instance=ExtResource( 24 )]
-position = Vector2( 720.937, -488.139 )
-scale = Vector2( 0.258477, 0.19356 )
-script = ExtResource( 11 )
-
-[node name="portal2" type="Sprite" parent="portal"]
-position = Vector2( -6.64563, -27.1233 )
-scale = Vector2( 0.690495, 0.586692 )
-texture = ExtResource( 13 )
 
 [node name="mainSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )

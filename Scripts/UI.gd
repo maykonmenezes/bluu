@@ -2,6 +2,7 @@ extends Control
 
 export var zone_text = "Octago"
 export var location = "Unknow"
+var coins_counter = 0
 var health_step = 4
 var STATE = 0
 var die_button = -1
@@ -29,12 +30,24 @@ func update_health():
 	$'hud/health/1/under'.rect_size.x = players[0].health_max * health_step
 	$'hud/health/1/line'.rect_size.x = players[0].health * health_step
 
+func update_coins():
+	coins_counter += 1 
+	$'hud/health/1/coins'.text = str(coins_counter)
+
 func _on_checker_timeout():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() <= 0:
 		$'game_over/anim'.play("game_over")
 		$'checker'.stop()
 
+func on_portal():
+	var coins = get_tree().get_nodes_in_group("coin")
+	if coins_counter == 15:
+		get_tree().change_scene("res://Scenes/fusion.tscn")
+	else:
+		$'hud/health/1/tip'.text = "You left some coins"
+		$'hud/health/1/anim'.play("anim")
+		
 func die_menu_end():
 	if die_button == 0:
 		get_tree().change_scene("res://Scenes/polygone.tscn")
