@@ -30,6 +30,10 @@ func update_health():
 	$'hud/health/1/under'.rect_size.x = players[0].health_max * health_step
 	$'hud/health/1/line'.rect_size.x = players[0].health * health_step
 
+func update_coins():
+	coins_counter += 1 
+	$'hud/health/1/coins'.text = str(coins_counter)
+
 func _on_checker_timeout():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() <= 0:
@@ -38,7 +42,7 @@ func _on_checker_timeout():
 
 func on_final():
 	var coins = get_tree().get_nodes_in_group("coin")
-	if coins_counter == 34:
+	if coins_counter == 0:
 		$'game_over2/anim'.play("game_over")
 		$'checker'.stop()
 	else:
