@@ -33,6 +33,9 @@ func update_health():
 func update_coins():
 	coins_counter += 1 
 	$'hud/health/1/coins'.text = str(coins_counter)
+	if coins_counter == 1:
+		$'hud/health/1/tip'.text = "You need \nto pick all \ncoins to pass a level.."
+		$'hud/health/1/anim'.play("anim")
 
 func _on_checker_timeout():
 	var players = get_tree().get_nodes_in_group("player")
@@ -42,7 +45,7 @@ func _on_checker_timeout():
 
 func on_portal():
 	var coins = get_tree().get_nodes_in_group("coin")
-	if coins_counter == 15:
+	if coins_counter >= 15:
 		get_tree().change_scene("res://Scenes/fusion.tscn")
 	else:
 		$'hud/health/1/tip'.text = "You left some coins"

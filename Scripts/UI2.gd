@@ -42,8 +42,10 @@ func _on_checker_timeout():
 
 func on_final():
 	var coins = get_tree().get_nodes_in_group("coin")
-	if coins_counter == 0:
+	if coins_counter >= 34:
+		get_tree().call_group('final', 'finish')
 		$'game_over2/anim'.play("game_over")
+		$'game_over2/'
 		$'checker'.stop()
 	else:
 		$'hud/health/1/tip'.text = "You left some coins"

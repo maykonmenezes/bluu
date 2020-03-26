@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Art/white_pix.png" type="Texture" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://Art/buttons/keyboard/KB_X.png" type="Texture" id=6]
 [ext_resource path="res://Art/buttons/keyboard/KB_Z.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Art/health/hp7.png" type="Texture" id=9]
+[ext_resource path="res://Art/player_boo-1.png (1).png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim"
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("tip:visible")
 tracks/0/interp = 1
@@ -18,7 +21,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -415,6 +418,12 @@ __meta__ = {
 margin_top = 8.0
 margin_right = 40.0
 margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -426,6 +435,12 @@ margin_left = 92.0
 margin_top = 14.0
 margin_right = 218.0
 margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -441,7 +456,7 @@ __meta__ = {
 }
 
 [node name="bg" type="TextureRect" parent="change_scene"]
-modulate = Color( 0, 0, 0, 0.333333 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
@@ -465,10 +480,9 @@ autoplay = "change_scene"
 anims/change_scene = SubResource( 2 )
 
 [node name="loc" type="Label" parent="change_scene"]
-visible = false
 margin_left = 52.0
 margin_top = 139.0
-margin_right = 306.0
+margin_right = 53.0
 margin_bottom = 174.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -541,6 +555,25 @@ margin_top = 1.0
 margin_right = -4.0
 margin_bottom = 17.0
 texture = ExtResource( 6 )
+
+[node name="exit2" type="Label" parent="game_over/buttons"]
+margin_left = 90.0
+margin_top = -99.0
+margin_right = 254.0
+margin_bottom = -66.0
+custom_fonts/font = SubResource( 6 )
+text = "Don't give up soldier..
+Try harder next time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" type="TextureRect" parent="game_over/buttons/exit2"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 9 )
 
 [node name="text" type="Label" parent="game_over"]
 modulate = Color( 1, 1, 1, 0 )
@@ -619,6 +652,30 @@ margin_top = 1.0
 margin_right = -4.0
 margin_bottom = 17.0
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit2" type="Label" parent="game_over2/buttons"]
+margin_left = 69.0
+margin_top = -104.0
+margin_right = 255.0
+margin_bottom = -35.0
+custom_fonts/font = SubResource( 6 )
+text = "You did it! Bluu finally
+found his way out of it...
+
+New levels coming soon.."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" type="TextureRect" parent="game_over2/buttons/exit2"]
+margin_left = -20.0
+margin_top = 1.0
+margin_right = -4.0
+margin_bottom = 17.0
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

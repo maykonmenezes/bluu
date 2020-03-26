@@ -6,7 +6,6 @@
 [ext_resource path="res://tl.tres" type="TileSet" id=4]
 [ext_resource path="res://Scripts/UI2.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/final.gd" type="Script" id=6]
-[ext_resource path="res://Art/player_boo-1.png (1)-1.png.png" type="Texture" id=7]
 [ext_resource path="res://assets/portal.png" type="Texture" id=13]
 [ext_resource path="res://Art/layers/parallax-mountain-foreground-trees.png" type="Texture" id=14]
 [ext_resource path="res://Art/bg_bg.png" type="Texture" id=15]
@@ -47,15 +46,18 @@ tracks/0/keys = {
 a = Vector2( 20, -838 )
 b = Vector2( 20, 658 )
 
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
 [node name="polygone" type="Node"]
 
-[node name="player_boo-1png (1)-1png" type="Sprite" parent="."]
-position = Vector2( 736.95, -487.689 )
-scale = Vector2( 1.0299, 1.04023 )
-texture = ExtResource( 7 )
-
-[node name="portal" parent="." instance=ExtResource( 24 )]
-position = Vector2( 657.346, -487.531 )
+[node name="portal" parent="." groups=[
+"final",
+] instance=ExtResource( 24 )]
+position = Vector2( 719.03, -485.374 )
 scale = Vector2( 0.258477, 0.19356 )
 script = ExtResource( 6 )
 
@@ -178,7 +180,7 @@ texture = ExtResource( 26 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
 position = Vector2( -222.37, 190.089 )
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 offset = Vector2( 256, 16 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
@@ -535,3 +537,243 @@ position = Vector2( 578, -138 )
 stream = ExtResource( 25 )
 volume_db = -2.0
 autoplay = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 136, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D43" type="Particles2D" parent="."]
+position = Vector2( -232, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D44" type="Particles2D" parent="."]
+position = Vector2( -248, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D46" type="Particles2D" parent="."]
+position = Vector2( -232, 88 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D45" type="Particles2D" parent="."]
+position = Vector2( -248, 88 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D48" type="Particles2D" parent="."]
+position = Vector2( -232, 69 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D47" type="Particles2D" parent="."]
+position = Vector2( -248, 69 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 152, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+position = Vector2( 168, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D4" type="Particles2D" parent="."]
+position = Vector2( 184, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D5" type="Particles2D" parent="."]
+position = Vector2( 232, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D6" type="Particles2D" parent="."]
+position = Vector2( 248, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D7" type="Particles2D" parent="."]
+position = Vector2( 296, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D8" type="Particles2D" parent="."]
+position = Vector2( 312, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D9" type="Particles2D" parent="."]
+position = Vector2( 360, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D10" type="Particles2D" parent="."]
+position = Vector2( 376, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D11" type="Particles2D" parent="."]
+position = Vector2( 424, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D12" type="Particles2D" parent="."]
+position = Vector2( 440, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D13" type="Particles2D" parent="."]
+position = Vector2( 552, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D14" type="Particles2D" parent="."]
+position = Vector2( 568, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D15" type="Particles2D" parent="."]
+position = Vector2( 584, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D16" type="Particles2D" parent="."]
+position = Vector2( 600, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D20" type="Particles2D" parent="."]
+position = Vector2( 552, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D19" type="Particles2D" parent="."]
+position = Vector2( 568, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D18" type="Particles2D" parent="."]
+position = Vector2( 584, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D17" type="Particles2D" parent="."]
+position = Vector2( 600, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D24" type="Particles2D" parent="."]
+position = Vector2( 552, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D23" type="Particles2D" parent="."]
+position = Vector2( 568, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D22" type="Particles2D" parent="."]
+position = Vector2( 584, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D21" type="Particles2D" parent="."]
+position = Vector2( 600, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D36" type="Particles2D" parent="."]
+position = Vector2( 808, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D35" type="Particles2D" parent="."]
+position = Vector2( 824, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D34" type="Particles2D" parent="."]
+position = Vector2( 840, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D33" type="Particles2D" parent="."]
+position = Vector2( 856, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D39" type="Particles2D" parent="."]
+position = Vector2( 872, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D42" type="Particles2D" parent="."]
+position = Vector2( 888, 162 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D32" type="Particles2D" parent="."]
+position = Vector2( 808, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D31" type="Particles2D" parent="."]
+position = Vector2( 824, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D30" type="Particles2D" parent="."]
+position = Vector2( 840, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D29" type="Particles2D" parent="."]
+position = Vector2( 856, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D38" type="Particles2D" parent="."]
+position = Vector2( 872, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D41" type="Particles2D" parent="."]
+position = Vector2( 888, 90 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D28" type="Particles2D" parent="."]
+position = Vector2( 808, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D27" type="Particles2D" parent="."]
+position = Vector2( 824, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D26" type="Particles2D" parent="."]
+position = Vector2( 840, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D25" type="Particles2D" parent="."]
+position = Vector2( 856, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D37" type="Particles2D" parent="."]
+position = Vector2( 872, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
+
+[node name="Particles2D40" type="Particles2D" parent="."]
+position = Vector2( 888, 18 )
+process_material = SubResource( 3 )
+texture = ExtResource( 16 )
