@@ -1,0 +1,132 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Art/player_ree.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/sam.gd" type="Script" id=2]
+[ext_resource path="res://sound/Randomize.ogg" type="AudioStream" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( -4, -5, 4, -5, 6, 0, 4, 4, -4, 4, -6, 0 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bounce"
+length = 0.2
+
+[sub_resource type="Animation" id=3]
+resource_name = "damage"
+length = 0.1
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "die"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
+
+[sub_resource type="Animation" id=7]
+
+[sub_resource type="Animation" id=8]
+length = 0.6
+loop = true
+
+[sub_resource type="Animation" id=9]
+resource_name = "slide"
+length = 0.2
+
+[sub_resource type="ParticlesMaterial" id=10]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 90.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 4.0
+scale_random = 1.0
+color = Color( 0, 1, 0.25, 1 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4, 1 )
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+audio_stream = ExtResource( 3 )
+random_pitch = 1.2
+
+[node name="sam" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="body" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -1 )
+vframes = 4
+hframes = 4
+frame = 7
+
+[node name="bullet_spawn" type="Position2D" parent="body"]
+visible = false
+position = Vector2( 7, 0 )
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/bounce = SubResource( 2 )
+anims/damage = SubResource( 3 )
+anims/die = SubResource( 4 )
+anims/falling = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jumping = SubResource( 7 )
+anims/run = SubResource( 8 )
+anims/slide = SubResource( 9 )
+next/bounce = "idle"
+next/damage = "idle"
+
+[node name="particle" type="Particles2D" parent="."]
+emitting = false
+amount = 64
+one_shot = true
+speed_scale = 2.0
+randomness = 1.0
+process_material = SubResource( 10 )
+
+[node name="floor_kill" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1032
+
+[node name="col" type="CollisionShape2D" parent="floor_kill"]
+position = Vector2( 0, 4 )
+shape = SubResource( 11 )
+
+[node name="check_wall_r" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 5, 0 )
+enabled = true
+cast_to = Vector2( 1, 0 )
+
+[node name="check_wall_l" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( -5, 0 )
+enabled = true
+cast_to = Vector2( -1, 0 )
+
+[node name="check_platform" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 5 )
+
+[node name="audio_player" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 12 )
+[connection signal="body_entered" from="floor_kill" to="." method="_on_floor_kill_body_entered"]
