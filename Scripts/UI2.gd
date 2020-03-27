@@ -2,11 +2,15 @@ extends Control
 
 export var zone_text = "Fusion"
 export var location = "Fusion"
+var final = false
 var coins_counter = 0
 var health_step = 4
 var STATE = 0
 var die_button = -1
 enum {STATE_INGAME, STATE_PAUSE, STATE_DIE_BUTTONS, STATE_CHANGE_SCENE}
+var timer
+var seconds: int = 40
+var minutes: int = 2
 
 func _process(delta):
 	if STATE == STATE_DIE_BUTTONS:
@@ -24,6 +28,24 @@ func _ready():
 	#s$'change_scene/zone'.text = zone_text
 	$'change_scene/loc'.text = location
 	update_health()
+	timer = Timer.new()
+	timer.connect("timeout",self,"_on_timer_timeout") 
+	timer.set_wait_time(1) #value is in seconds: 600 seconds = 10 minutes
+	timer.set_one_shot(false)
+	add_child(timer) 
+	timer.start()
+
+func _on_timer_timeout():
+	seconds -= 1
+	if minutes == 0 && seconds == 0:
+		get_tree().call_group('player', 'die')
+	elif seconds == 0:
+		seconds = 60
+		minutes -= 1
+	elif minutes == 0:
+		minutes  = 0
+	print( minutes, " : ", str(seconds).pad_zeros(2) )
+	$'countdown'.set_text(str(minutes, " : ", str(seconds).pad_zeros(2))) 
 
 func update_health():
 	var players = get_tree().get_nodes_in_group("player")
@@ -37,12 +59,15 @@ func update_coins():
 func _on_checker_timeout():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() <= 0:
+		timer.queue_free()
 		$'game_over/anim'.play("game_over")
 		$'checker'.stop()
 
 func on_final():
 	var coins = get_tree().get_nodes_in_group("coin")
 	if coins_counter >= 34:
+		final = true
+		timer.queue_free()
 		get_tree().call_group('final', 'finish')
 		$'game_over2/anim'.play("game_over")
 		$'game_over2/'
@@ -53,7 +78,10 @@ func on_final():
 
 func die_menu_end():
 	if die_button == 0:
-		get_tree().change_scene("res://Scenes/fusion.tscn")
+		if final:
+			get_tree().change_scene("res://Scenes/polygone.tscn")
+		else:
+			get_tree().change_scene("res://Scenes/fusion.tscn")
 	elif die_button == 1:
 		get_tree().quit()
 

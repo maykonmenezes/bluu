@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Art/white_pix.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Art/health/hp7.png" type="Texture" id=9]
 [ext_resource path="res://Art/player_boo-1.png (1).png" type="Texture" id=10]
+[ext_resource path="res://Art/player_boo-1.png (1)-1.png.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim"
@@ -645,6 +646,9 @@ margin_right = 203.0
 margin_bottom = 16.0
 custom_fonts/font = SubResource( 6 )
 text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="button" type="TextureRect" parent="game_over2/buttons/exit"]
 margin_left = -20.0
@@ -662,13 +666,17 @@ margin_top = -104.0
 margin_right = 255.0
 margin_bottom = -35.0
 custom_fonts/font = SubResource( 6 )
-text = "You did it! Bluu finally
+text = "You did it! Bluu and Sam finally
 found his way out of it...
 
 New levels coming soon.."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="player_boo-1png (1)-1png" type="Sprite" parent="game_over2/buttons/exit2"]
+position = Vector2( -23.4242, 6.78775 )
+texture = ExtResource( 11 )
 
 [node name="button" type="TextureRect" parent="game_over2/buttons/exit2"]
 margin_left = -20.0
@@ -700,4 +708,16 @@ __meta__ = {
 
 [node name="checker" type="Timer" parent="."]
 autostart = true
+
+[node name="countdown" type="Label" parent="."]
+margin_left = 141.972
+margin_top = 7.96104
+margin_right = 181.972
+margin_bottom = 21.961
+custom_colors/font_color = Color( 1, 0.987061, 0.792969, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
 [connection signal="timeout" from="checker" to="." method="_on_checker_timeout"]
